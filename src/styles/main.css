@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: azure;
+  background-color: rgb(208, 248, 248);
 }
 
 .wrapper {
@@ -11,6 +11,18 @@ body {
   max-width: 600px;
   min-width: 250px;
   height: auto;
-  border-color: 2px paleturquoise;
-  background-color: aquamarine;
+  border-color: 2px rgb(55, 134, 134);
+  background-color: rgb(143, 228, 221);
+}
+
+.empty-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 1.5rem;
+}
+
+.hidden {
+  display: none !important;
 }
