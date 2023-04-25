@@ -173,4 +173,6 @@ This project is [MIT](./LICENSE) licensed.
 I only created the website html, styles and interactions _(html, css, js)_
 The media files on this site __DOES NOT__ belong to me. All credit must be given to the original author/source. See details below
 
+- [favicon](https://www.pixiv.net/en/artworks/71008974) by [横gon](https://www.pixiv.net/en/users/29647895)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
