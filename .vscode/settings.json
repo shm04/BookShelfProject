@@ -1,0 +1,10 @@
+{
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "C:\\Users\\J.Garcia\\STORAGE\\FIREFOX\\Firefox\\firefox.exe",
+  "markdownlint.ignore": [
+    "README.md",
+    "LICENSE"
+  ]
+}
