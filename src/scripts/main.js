@@ -50,8 +50,8 @@ function renderShelf(booksCollection) {
   <div class="booksInput-container">
     <h3 class="book-title">Add New Book</h3>
     <form class="booksInput" action="">
-      <input type="text" class="book-title-in data-input" placeholder="Title" required>
-      <input type="text" class="book-author-in data-input" placeholder="Author" required>
+      <input type="text" class="book-title-in data-input" placeholder="Title" required="true">
+      <input type="text" class="book-author-in data-input" placeholder="Author" required="true">
       <button class="btn btn-add-book" type="submit">Add Book</button>
     </form>
   </div>`;
