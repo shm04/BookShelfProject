@@ -1,19 +1,11 @@
 /* CLASSES */
-/* class Book {
-  constructor(id, title, author) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-  }
-} */
 class Bookshelf {
   constructor() {
     this.booksCollection = [];
   }
 
   add(bookID, bookTitle, bookAuthor) {
-    // new Book(bookID, bookTitle, bookAuthor);
-    const book = {id:bookID, title:bookTitle, author:bookAuthor}
+    const book = { id: bookID, title: bookTitle, author: bookAuthor };
     this.booksCollection.push(book);
   }
 
