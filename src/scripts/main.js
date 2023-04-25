@@ -29,6 +29,12 @@ const booksCollection = new Bookshelf();
 
 /* DOM CONSTANTS */
 const bookShelfWrapper = document.querySelector('.wrapper');
+const emptyInput = document.querySelector('.empty-field');
+
+function store(dataEntry) {
+  /* Save inputs to local storage */
+  localStorage.setItem('dataEntry', JSON.stringify(dataEntry));
+}
 
 function renderShelf(booksCollection) {
   const booksList = booksCollection.getAll();
@@ -44,21 +50,55 @@ function renderShelf(booksCollection) {
   <div class="booksInput-container">
     <h3 class="book-title">Add New Book</h3>
     <form class="booksInput" action="">
-      <input type="text" class="book-title-in" placeholder="Title">
-      <input type="text" class="book-author-in" placeholder="Author">
-      <button class="btn btn-add-book">Add Book</button>
+      <input type="text" class="book-title-in data-input" placeholder="Title" required>
+      <input type="text" class="book-author-in data-input" placeholder="Author" required>
+      <button class="btn btn-add-book" type="submit">Add Book</button>
     </form>
   </div>`;
 
-  document.querySelector('.btn-add-book').addEventListener('click', () => {
-    /* CREATE UNIQUE ID FOR EACH BOOK */
-    const uid = String(Date.now().toString(32) + Math.random().toString(16)).replace('.', '');
+  const bookTitle = document.querySelector('.book-title-in');
+  const bookAuthor = document.querySelector('.book-author-in');
 
-    const title = document.querySelector('.book-title-in').value;
-    const author = document.querySelector('.book-author-in').value;
+  /* Get data from local storage or initialize as empty object */
+  const dataEntry = JSON.parse(localStorage.getItem('dataEntry')) ?? {};
 
-    booksCollection.add(uid, title, author);
-    renderShelf(booksCollection);
+  if (dataEntry) {
+    /* Read from local storage */
+    bookTitle.value = dataEntry.title || '';
+    bookAuthor.value = dataEntry.author || '';
+  }
+
+  /* Write to local storage as the user types */
+  bookTitle.addEventListener('input', () => {
+    if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
+    dataEntry.title = bookTitle.value;
+    store(dataEntry);
+  });
+
+  bookAuthor.addEventListener('input', () => {
+    if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
+    dataEntry.author = bookAuthor.value;
+    store(dataEntry);
+  });
+  /* ========================================= */
+
+  document.querySelector('.booksInput').addEventListener('submit', (event) => {
+    if (!bookTitle.value.trim() || !bookAuthor.value.trim()) {
+      event.preventDefault();
+      emptyInput.classList.remove('hidden');
+    } else {
+      /* Create a unique id for each book to remove with filter */
+      const uid = String(Date.now().toString(32) + Math.random().toString(16)).replace('.', '');
+
+      const { title, author } = dataEntry;
+      booksCollection.add(uid, title, author);
+
+      /* Keep author for multiple books of same writer */
+      dataEntry.title = '';
+      store(dataEntry);
+
+      renderShelf(booksCollection);
+    }
   });
 
   document.querySelectorAll('.btn-remove-book').forEach((deleteBtn) => {
