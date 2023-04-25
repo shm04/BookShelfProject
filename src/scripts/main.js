@@ -1,12 +1,18 @@
 /* CLASSES */
 class Bookshelf {
   constructor() {
-    this.booksCollection = [];
+    const localStg = localStorage.getItem('collection');
+    if (localStg) {
+      this.booksCollection = JSON.parse(localStg);
+    } else {
+      this.booksCollection = [];
+    }
   }
 
   add(bookID, bookTitle, bookAuthor) {
     const book = { id: bookID, title: bookTitle, author: bookAuthor };
     this.booksCollection.push(book);
+    localStorage.setItem('collection', JSON.stringify(this.booksCollection));
   }
 
   getAll() {
@@ -15,6 +21,7 @@ class Bookshelf {
 
   remove(bookID) {
     this.booksCollection = this.booksCollection.filter((book) => book.id !== bookID);
+    localStorage.setItem('collection', JSON.stringify(this.booksCollection));
   }
 }
 
