@@ -41,18 +41,17 @@ function renderShelf(booksCollection) {
   bookShelfWrapper.innerHTML = `
   <ul class="shelf-container">
     ${booksList.map((book) => `
-      <li class="shelf-item" id="${book.id}">
-        <h3 class="book-title">${book.title}</h3>
+      <li class="shelf-item flex-col-st-ct dflex" id="${book.id}">
+        <p class="book-title">${book.title}</p>
         <p class="book-author">${book.author}</p>
-        <button type="button" class="btn btn-remove-book">Delete Book</button>
+        <button type="button" class="btn btn-remove-book">Remove</button>
       </li>`).join('')}
   </ul>
   <div class="booksInput-container">
-    <h3 class="book-title">Add New Book</h3>
-    <form class="booksInput" action="">
+    <form class="booksInput flex-col-st-ct dflex" action="">
       <input type="text" class="book-title-in data-input" placeholder="Title" required="true">
       <input type="text" class="book-author-in data-input" placeholder="Author" required="true">
-      <button class="btn btn-add-book" type="submit">Add Book</button>
+      <button class="btn btn-add-book" type="submit">Add</button>
     </form>
   </div>`;
 
