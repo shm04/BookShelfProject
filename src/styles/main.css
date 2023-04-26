@@ -1,6 +1,6 @@
 :root {
   --ff-shan: 'Shantell Sans', sans-serif;
-  --clr-books-odd: #dddddd;
+  --clr-books-odd: #ddd;
   --clr-books-even: #fff;
 }
 
@@ -80,6 +80,7 @@ body {
 }
 
 .sub-title {
+  font-weight: normal;
   text-align: center;
   margin: 0 auto 0.4em;
   font-size: clamp(0.3rem, 0.5rem + 2vw, 3.5rem);
@@ -144,8 +145,4 @@ body {
   border-bottom: 1px solid black;
   background-color: black;
   border-radius: 25% 25% 25% 25%;
-}
-
-.sub-title {
-  font-weight: normal;
 }
