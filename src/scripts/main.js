@@ -39,21 +39,13 @@ function store(dataEntry) {
 function renderShelf(booksCollection) {
   const booksList = booksCollection.getAll();
   bookShelfWrapper.innerHTML = `
-  <ul class="shelf-container">
+  <ul class="shelf-container fwn dflex flex-col">
     ${booksList.map((book) => `
-      <li class="shelf-item flex-col-st-ct dflex" id="${book.id}">
-        <p class="book-title">${book.title}</p>
-        <p class="book-author">${book.author}</p>
+      <li class="shelf-item dflex justbet fwn" id="${book.id}">
+        <p class="book-title fwn">"${book.title}" by ${book.author}</p>
         <button type="button" class="btn btn-remove-book">Remove</button>
       </li>`).join('')}
-  </ul>
-  <div class="booksInput-container">
-    <form class="booksInput flex-col-st-ct dflex" action="">
-      <input type="text" class="book-title-in data-input" placeholder="Title" required="true">
-      <input type="text" class="book-author-in data-input" placeholder="Author" required="true">
-      <button class="btn btn-add-book" type="submit">Add</button>
-    </form>
-  </div>`;
+  </ul>`;
 
   const bookTitle = document.querySelector('.book-title-in');
   const bookAuthor = document.querySelector('.book-author-in');
