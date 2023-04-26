@@ -12,10 +12,27 @@
 
   <link rel="shortcut icon" href="./assets/img/favicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="./src/styles/main.css" type="text/css">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,900&family=Shantell+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <h1 class="tittle">Awesome books</h1>
-  <div class="wrapper">
+<body class="dflex flex-col">
+  <h1 class="title">All awesome books</h1>
+
+  <div class="wrapper dflex flex-col">
+  </div>
+
+  <hr class="divisor">
+
+  <div class="booksInput-container">
+    <h2 class="sub-title">Add a new book</h2>
+    <form class="booksInput flex-col-ct dflex fwn" action="">
+      <input type="text" class="book-title-in data-input" placeholder="Title" required="true">
+      <input type="text" class="book-author-in data-input" placeholder="Author" required="true">
+      <button class="btn btn-add-book" type="submit">Add</button>
+    </form>
   </div>
 
   <span class="empty-field hidden"> Title and Author can't be empty space!</span>
