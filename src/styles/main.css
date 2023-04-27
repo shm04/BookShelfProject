@@ -93,11 +93,11 @@ a {
 
 .empty-field {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   color: red;
   font-size: 1.5em;
-  margin-left: 0.5%;
+  margin-right: 5%;
 }
 
 .hidden {
@@ -160,7 +160,7 @@ a {
   margin-top: 5px;
 }
 
-.books-list-wrapper{
+.books-list-wrapper {
   justify-content: center;
   align-items: center;
   width: 90%;

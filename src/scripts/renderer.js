@@ -104,9 +104,8 @@ function renderAddBook() {
         <button class="btn btn-add-book" type="submit">Add</button>
       </label>
     </form>
-  </div>
-
-  <span class="empty-field hidden"> Title and Author can't be empty space!</span>`;
+    <span class="empty-field hidden"> Title and Author can't be empty space!</span>
+  </div>`;
 
   const bookTitle = document.querySelector('.book-title-in');
   const bookAuthor = document.querySelector('.book-author-in');
