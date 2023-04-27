@@ -18,25 +18,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,900&family=Shantell+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="dflex flex-col">
-  <h1 class="title">All awesome books</h1>
+  <header class="header dflex">
+    <span class="logo">Awesome Books</span>
+    <nav class="nav dflex">
+      <button class="nav-link dflex"><a href="#see-books">List</a></button>
+      <button class="nav-link dflex"><a href="#add-book">Add New</a></button>
+      <button class="nav-link dflex"><a href="#contact-info">Contact</a></button>
+    </nav>
+  </header>
+  <div class="now-wrapper dflex"><p class="now"></p></div>
 
-  <div class="wrapper dflex flex-col">
-  </div>
+  <section class="section-wrapper dflex"></section>
 
-  <hr class="divisor">
+  <footer class="footer"><a href="./LICENSE" target="_blank" class="copyright">MIT Copyright License ...</a></footer>
 
-  <div class="booksInput-container">
-    <h2 class="sub-title">Add a new book</h2>
-    <form class="booksInput flex-col-ct dflex fwn" action="">
-      <input type="text" class="book-title-in data-input" placeholder="Title" required="true">
-      <input type="text" class="book-author-in data-input" placeholder="Author" required="true">
-      <button class="btn btn-add-book" type="submit">Add</button>
-    </form>
-  </div>
-
-  <span class="empty-field hidden"> Title and Author can't be empty space!</span>
-
+  <script src="./src/scripts/renderer.js" defer></script>
   <script src="./src/scripts/main.js" defer></script>
 </body>
 </html>
