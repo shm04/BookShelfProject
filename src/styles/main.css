@@ -127,7 +127,7 @@ a {
 }
 
 .booksInput-container {
-  gap: 1rem;
+  width: inherit;
 }
 
 .booksInput {
@@ -160,8 +160,16 @@ a {
   margin-top: 5px;
 }
 
+.books-list-wrapper{
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
 .shelf-container {
   padding-left: 0.5em;
+  width: 80%;
 }
 
 .shelf-container li:nth-child(odd) {
@@ -207,4 +215,14 @@ footer {
   border: 3px solid black;
   padding: 0.655rem;
   margin-top: 10vh;
+}
+
+.section-wrapper {
+  width: 100%;
+}
+
+.contact-wrapper {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }

@@ -8,7 +8,7 @@
   <meta name="keywords" content="virtual, library,books, shelf, BookShelf"/>
   <meta name="author" content="Junior Garcia">
 
-  <title>BookShelf alpha</title>
+  <title>Virtual Library</title>
 
   <link rel="shortcut icon" href="./assets/img/favicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="./src/styles/main.css" type="text/css">
@@ -23,9 +23,9 @@
   <header class="header dflex">
     <span class="logo">Awesome Books</span>
     <nav class="nav dflex">
-      <button class="nav-link dflex"><a href="#see-books">List</a></button>
-      <button class="nav-link dflex"><a href="#add-book">Add New</a></button>
-      <button class="nav-link dflex"><a href="#contact-info">Contact</a></button>
+      <button class="nav-link dflex"><a id="list" href="#see-books">List</a></button>
+      <button class="nav-link dflex"><a id="add" href="#add-book">Add New</a></button>
+      <button class="nav-link dflex"><a id="contact" href="#contact-info">Contact</a></button>
     </nav>
   </header>
   <div class="now-wrapper dflex"><p class="now"></p></div>
@@ -34,7 +34,7 @@
 
   <footer class="footer"><a href="./LICENSE" target="_blank" class="copyright">MIT Copyright License ...</a></footer>
 
+  <!-- <script src="./src/scripts/main.js" defer></script> -->
   <script src="./src/scripts/renderer.js" defer></script>
-  <script src="./src/scripts/main.js" defer></script>
 </body>
 </html>
