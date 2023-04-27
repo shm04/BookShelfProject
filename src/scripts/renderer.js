@@ -187,12 +187,3 @@ document.querySelectorAll('.nav-link').forEach((navLink) => {
     }
   });
 });
-
-/* EVENTS HANDLERS */
-document.querySelectorAll('.btn-remove-book').forEach((deleteBtn) => {
-  deleteBtn.addEventListener('click', (event) => {
-    const callerBookID = event.target.parentNode.id;
-    booksCollection.remove(callerBookID);
-    renderBooksList(booksCollection);
-  });
-});
