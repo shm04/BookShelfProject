@@ -29,8 +29,6 @@ class Bookshelf {
 /* DOM CONSTANTS */
 const sectionWrapper = document.querySelector('.section-wrapper');
 const dateNow = document.querySelector('.now');
-const bookShelfWrapper = document.querySelector('.wrapper');
-const emptyInput = document.querySelector('.empty-field');
 
 /* UTILITY */
 const booksCollection = new Bookshelf();
@@ -57,15 +55,8 @@ function clearSection(section) {
   }
 }
 
-// Read from local storage //
-/* if (dataEntry) {
-  bookTitle.value = dataEntry.title || '';
-  bookAuthor.value = dataEntry.author || '';
-} */
-
 // Store the input to local storage //
 function store(dataEntry) {
-  /* Save inputs to local storage */
   localStorage.setItem('dataEntry', JSON.stringify(dataEntry));
 }
 /* =========================================== */
@@ -87,6 +78,14 @@ function renderBooksList(booksCollection) {
           </li>`).join('')}
       </ul>
     </div>`;
+
+  document.querySelectorAll('.btn-remove-book').forEach((deleteBtn) => {
+    deleteBtn.addEventListener('click', (event) => {
+      const callerBookID = event.target.parentNode.id;
+      booksCollection.remove(callerBookID);
+      renderBooksList(booksCollection);
+    });
+  });
 }
 
 function renderAddBook() {
@@ -111,12 +110,44 @@ function renderAddBook() {
 
   const bookTitle = document.querySelector('.book-title-in');
   const bookAuthor = document.querySelector('.book-author-in');
+  const emptyInput = document.querySelector('.empty-field');
 
+  // Read from local storage //
   if (dataEntry) {
     bookTitle.value = dataEntry.title || '';
     bookAuthor.value = dataEntry.author || '';
   }
+
+  // Write to local storage as the user types //
+  bookTitle.addEventListener('input', () => {
+    if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
+    dataEntry.title = bookTitle.value;
+    store(dataEntry);
+  });
+  bookAuthor.addEventListener('input', () => {
+    if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
+    dataEntry.author = bookAuthor.value;
+    store(dataEntry);
+  });
+
+  document.querySelector('.booksInput').addEventListener('submit', (event) => {
+    if (!bookTitle.value.trim() || !bookAuthor.value.trim()) {
+      event.preventDefault();
+      emptyInput.classList.remove('hidden');
+    } else {
+      /* Create a unique id for each book to remove with filter */
+      const uid = String(Date.now().toString(32) + Math.random().toString(16)).replace('.', '');
+
+      const { title, author } = dataEntry;
+      booksCollection.add(uid, title, author);
+
+      /* Keep author for multiple books of same writer */
+      dataEntry.title = '';
+      store(dataEntry);
+    }
+  });
 }
+
 function renderContctInfo() {
   // Clear the section to generate the new one //
   clearSection(sectionWrapper);
@@ -158,37 +189,6 @@ document.querySelectorAll('.nav-link').forEach((navLink) => {
 });
 
 /* EVENTS HANDLERS */
-// Write to local storage as the user types //
-bookTitle.addEventListener('input', () => {
-  if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
-  dataEntry.title = bookTitle.value;
-  store(dataEntry);
-});
-bookAuthor.addEventListener('input', () => {
-  if (!emptyInput.classList.contains('hidden')) { emptyInput.classList.add('hidden'); }
-  dataEntry.author = bookAuthor.value;
-  store(dataEntry);
-});
-
-document.querySelector('.booksInput').addEventListener('submit', (event) => {
-  if (!bookTitle.value.trim() || !bookAuthor.value.trim()) {
-    event.preventDefault();
-    emptyInput.classList.remove('hidden');
-  } else {
-    /* Create a unique id for each book to remove with filter */
-    const uid = String(Date.now().toString(32) + Math.random().toString(16)).replace('.', '');
-
-    const { title, author } = dataEntry;
-    booksCollection.add(uid, title, author);
-
-    /* Keep author for multiple books of same writer */
-    dataEntry.title = '';
-    store(dataEntry);
-
-    renderBooksList(booksCollection);
-  }
-});
-
 document.querySelectorAll('.btn-remove-book').forEach((deleteBtn) => {
   deleteBtn.addEventListener('click', (event) => {
     const callerBookID = event.target.parentNode.id;
