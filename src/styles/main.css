@@ -24,11 +24,63 @@ body {
   margin: 0;
   align-items: center;
   gap: 0.7rem;
+  min-width: 300px;
+}
+
+.header {
+  width: 80%;
+  height: 3rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 0.1rem 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-shan);
+  border: 3px solid black;
+  min-width: 300px;
+}
+
+.logo {
+  font-size: clamp(0.8rem, 1rem + 5vw, 1.5rem);
+  font-weight: 500;
+  width: 45%;
+  margin-right: 2%;
+}
+
+.nav {
+  gap: calc(0.3rem + 1vw);
+}
+
+.nav-link {
+  background-color: transparent;
+  border: transparent;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  font-family: var(--ff-shan);
+  font-size: clamp(0.5rem, 0.5rem + 2vw, 1rem);
+}
+
+.nav > * + * {
+  border-left: 1px solid black;
+}
+
+.now-wrapper {
+  width: 84.5%;
+  margin-top: -1.5em;
+  margin-right: 2%;
+  justify-content: flex-end;
 }
 
 .title {
-  font-size: clamp(0.8rem, 1.5rem + 10vw, 3rem);
-  align-self: center;
+  font-size: clamp(0.8rem, 0.8rem + 10vw, 2.8rem);
+  text-align: center;
+  margin: 0 auto 0.4em;
 }
 
 .wrapper {
@@ -76,14 +128,6 @@ body {
 
 .booksInput-container {
   gap: 1rem;
-  width: 35%;
-}
-
-.sub-title {
-  font-weight: normal;
-  text-align: center;
-  margin: 0 auto 0.4em;
-  font-size: clamp(0.3rem, 0.5rem + 2vw, 3.5rem);
 }
 
 .booksInput {
@@ -96,15 +140,24 @@ body {
 }
 
 .data-input {
-  width: 85%;
+  width: 90%;
   font-family: var(--ff-shan);
   border: 3px solid black;
   font-weight: 900;
+  margin-right: 0;
+}
+
+.form__lbl {
+  gap: 0.1em;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--ff-shan);
 }
 
 .btn-add-book {
   align-self: flex-end;
-  margin-right: 7%;
+  margin-right: 8%;
+  margin-top: 5px;
 }
 
 .shelf-container {
@@ -145,4 +198,13 @@ body {
   border-bottom: 1px solid black;
   background-color: black;
   border-radius: 25% 25% 25% 25%;
+}
+
+footer {
+  display: flex;
+  width: 80%;
+  height: fit-content;
+  border: 3px solid black;
+  padding: 0.655rem;
+  margin-top: 10vh;
 }
