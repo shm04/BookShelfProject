@@ -70,7 +70,7 @@ and DOM manipulation with JavaScript. You can check [this](https://www.loom.com/
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://juniorgarciarodriguez.github.io/BookShelfProject/)
+- [Live Demo](https://shm04.github.io/BookShelfProject/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
